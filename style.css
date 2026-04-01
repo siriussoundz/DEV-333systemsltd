@@ -102,20 +102,24 @@ nav a:hover {
     color: var(--red);
 }
 
-/* New richer topbar */
+/* Top header */
 .topbar {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(10, 10, 10, 0.92);
+    background: rgba(10, 10, 10, 0.96);
     border-bottom: 1px solid rgba(217, 31, 38, 0.28);
     backdrop-filter: blur(10px);
     padding: 0;
     text-align: left;
 }
 
+.topbar.brand-only .topbar-inner {
+    justify-content: flex-start;
+}
+
 .topbar-inner {
-    min-height: 78px;
+    min-height: 88px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -126,21 +130,21 @@ nav a:hover {
 .brand {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
     min-width: 0;
 }
 
 .brand-mark {
-    width: 42px;
-    height: 42px;
+    width: 58px;
+    height: 58px;
     object-fit: contain;
     display: block;
-    filter: drop-shadow(0 0 10px rgba(217, 31, 38, 0.08));
+    filter: drop-shadow(0 0 12px rgba(217, 31, 38, 0.12));
 }
 
 .brand-text {
-    font-size: 1rem;
-    font-weight: 700;
+    font-size: 1.15rem;
+    font-weight: 800;
     letter-spacing: 0.01em;
     white-space: nowrap;
 }
@@ -152,6 +156,7 @@ nav a:hover {
     letter-spacing: 0.04em;
 }
 
+/* Original nav (kept for compatibility on other pages if needed) */
 .nav {
     display: flex;
     align-items: center;
@@ -173,6 +178,56 @@ nav a:hover {
 
 .nav a:hover,
 .nav a.active {
+    color: var(--text);
+    background: rgba(217, 31, 38, 0.14);
+    box-shadow: inset 0 0 0 1px rgba(217, 31, 38, 0.2);
+}
+
+/* Secondary nav / breadcrumb bar */
+.subnav-bar {
+    border-bottom: 1px solid rgba(217, 31, 38, 0.22);
+    background: rgba(8, 8, 8, 0.88);
+}
+
+.subnav-inner {
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 8px 0;
+}
+
+.crumbs {
+    color: var(--muted);
+    font-size: 0.88rem;
+    white-space: nowrap;
+}
+
+.crumbs strong {
+    color: var(--text);
+    font-weight: 700;
+}
+
+.subnav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px 8px;
+}
+
+.subnav a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    border-radius: 999px;
+    transition: all 0.18s ease;
+}
+
+.subnav a:hover,
+.subnav a.active {
     color: var(--text);
     background: rgba(217, 31, 38, 0.14);
     box-shadow: inset 0 0 0 1px rgba(217, 31, 38, 0.2);
@@ -350,6 +405,18 @@ nav a:hover {
     box-shadow: 0 10px 28px rgba(217, 31, 38, 0.3);
 }
 
+.button-secondary {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(217, 31, 38, 0.22);
+    box-shadow: none;
+}
+
+.button-secondary:hover {
+    background: rgba(217, 31, 38, 0.12);
+    box-shadow: inset 0 0 0 1px rgba(217, 31, 38, 0.16);
+    transform: translateY(-1px);
+}
+
 /* CTA */
 .cta {
     background:
@@ -423,13 +490,19 @@ strong {
 
 /* Responsive */
 @media (max-width: 980px) {
-    .topbar-inner {
+    .topbar-inner,
+    .subnav-inner {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .nav {
+    .nav,
+    .subnav {
         width: 100%;
+    }
+
+    .crumbs {
+        white-space: normal;
     }
 
     .grid-2,
@@ -459,7 +532,8 @@ strong {
         white-space: normal;
     }
 
-    .nav a {
+    .nav a,
+    .subnav a {
         padding: 9px 10px;
         font-size: 0.92rem;
     }
