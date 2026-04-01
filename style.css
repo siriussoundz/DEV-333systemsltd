@@ -443,6 +443,14 @@ iframe {
     filter: brightness(0.92) contrast(1.1);
 }
 
+.loading {
+    font-family: Consolas, monospace;
+    font-size: 0.9rem;
+    opacity: 0.5;
+    margin-top: 12px;
+    letter-spacing: 0.08em;
+}
+
 @media (max-width: 640px) {
     .wrap,
     .container,
