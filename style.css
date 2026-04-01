@@ -438,6 +438,11 @@ strong {
     }
 }
 
+iframe {
+    border-radius: 12px;
+    filter: brightness(0.92) contrast(1.1);
+}
+
 @media (max-width: 640px) {
     .wrap,
     .container,
