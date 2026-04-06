@@ -296,6 +296,17 @@ section {
     background: #0f0f0f;
 }
 
+.card img {
+  height: 180px;
+  object-fit: cover;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+  transition: all 0.2s ease;
+}
+
 /* Pill */
 .pill {
     display: inline-flex;
